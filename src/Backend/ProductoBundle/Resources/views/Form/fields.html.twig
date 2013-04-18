@@ -1,0 +1,42 @@
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set child = prototype %}
+        {% set attr = attr|merge({'data-prototype': block('collection_widget_row'), 'class': attr.class|default('') ~ ' controls' }) %}
+    {% endif %}
+    <div {{ block('widget_container_attributes') }}>
+        {{ form_errors(form) }}
+        {% for child in form %}
+            {{ block('collection_widget_row') }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        {% if allow_add %}
+            <div><a href="#" class="btn sonata-collection-add"><i class="icon-plus"></i></a></div>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block collection_widget_row %}
+{% spaceless %}
+    <div class="sonata-collection-row">
+        {% if allow_delete %}
+            <a href="#" class="btn sonata-collection-delete"><i class="icon-remove"></i></a>
+            <br>
+            <br>
+        {% endif %}
+            {{ form_errors(child) }}
+            {{ form_widget(child) }}
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{#{% block form_row %}
+{% spaceless %}
+    <div class="form_row">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}#}

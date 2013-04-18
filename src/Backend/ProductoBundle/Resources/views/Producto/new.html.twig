@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" async="" src="{{ asset('bundles/producto/js/base.js') }}"></script>
+{% endblock%}
+{% form_theme form 'ProductoBundle:Form:fields.html.twig' %}
+{% block body %}
+<h1>Producto creation</h1>
+
+<form action="{{ path('producto_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('producto') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

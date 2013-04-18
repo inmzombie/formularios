@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}HInclude Test{% endblock %}
+
+{% block body %}
+<h1>HInclude Test</h1>
+<a href="{{ path('_welcome') }}">Home</a>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset("bundles/acmedemo/hinclude/hinclude.js") }}" type="text/javascript"></script>
+{% endblock %}

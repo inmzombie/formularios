@@ -1,0 +1,8 @@
+<h2>Frameworks</h2>
+<ul>
+  <li{% if categoryCode == "sf" %} style="font-weight: bold;"{% endif %}>Symfony</li>
+  <li{% if categoryCode == "zf" %} style="font-weight: bold;"{% endif %}>Zend Framework</li>
+  <li{% if categoryCode == "au" %} style="font-weight: bold;"{% endif %}>Aura</li>
+</ul>
+
+{% set code = code(_self) %}
